@@ -6,3 +6,6 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Hello world from lost")
 
+
+def home(request):
+    return render(request, 'lost/home.html', {})
