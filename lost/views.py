@@ -1,9 +1,12 @@
+from django.conf import settings
+
 from django.shortcuts import render
 
 from django.http import HttpResponse
 
-from .forms import LostAdsForm
+from .forms import LostAdsForm, ContactForm
 
+from django.core.mail import send_mail
 
 def index(request):
     return HttpResponse("Hello world from lost")
@@ -42,3 +45,20 @@ def home(request):
 		}
 
 	return render(request, 'lost/home.html', context)
+
+
+def contact(request):
+
+	form = ContactForm(request.POST or None)
+
+	if form.is_valid():
+		email = form.cleaned_data.get('email')
+		message = form.cleaned_data.get('message')
+		full_name = form.cleaned_data.get('full_name')
+		# send_mail('Site contact form', message, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], fail_silently=True)
+
+	context = {
+		"form": form
+	}
+
+	return render(request, 'lost/contact.html', context)

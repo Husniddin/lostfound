@@ -2,6 +2,12 @@ from django import forms
 
 from .models import LostAds
 
+class ContactForm(forms.Form):
+	full_name = forms.CharField(required=False)
+	email = forms.EmailField()
+	message = forms.CharField()
+
+
 class LostAdsForm(forms.ModelForm):
 	class Meta:
 		model = LostAds
