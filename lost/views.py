@@ -43,8 +43,8 @@ def home(request):
             "title": 'Thank you',
         }
 
-    # return render(request, 'lost/home.html', context)
-    return render(request, 'lost/main.html', context)
+    return render(request, 'lost/home.html', context)
+    # return render(request, 'lost/main.html', context)
 
 
 def contact(request):
