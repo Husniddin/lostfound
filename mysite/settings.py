@@ -35,16 +35,18 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
-    # 'found.apps.FoundConfig',
-    'found',
-    # 'lost.apps.LostConfig',
-    'lost',
     'django.contrib.admin',
+    'django.contrib.sites',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'found.apps.FoundConfig',
+    'found',
+    # 'lost.apps.LostConfig',
+    'lost',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +148,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static', 'our_static')
 ]
+
+
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'

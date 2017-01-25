@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^lost/', include('lost.urls')),
     url(r'^found/', include('found.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # if settings.DEBUG:
